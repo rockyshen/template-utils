@@ -1,4 +1,4 @@
-package org.rockyshen.result;
+package com.rockyshen.result;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

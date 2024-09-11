@@ -1,4 +1,4 @@
-package org.rockyshen.result;
+package com.rockyshen.result;
 
 /**
  * Result类中ok方法、fail方法的code枚举类

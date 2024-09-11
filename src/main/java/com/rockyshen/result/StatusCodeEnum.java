@@ -1,4 +1,4 @@
-package org.rockyshen.result;
+package com.rockyshen.result;
 
 /**
  * HTTP状态枚举类

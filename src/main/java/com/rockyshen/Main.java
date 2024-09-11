@@ -1,7 +1,7 @@
-package org.rockyshen;
+package com.rockyshen;
 
-import org.rockyshen.result.Result;
-import org.rockyshen.result.StatusCodeEnum;
+import com.rockyshen.result.Result;
+import com.rockyshen.result.StatusCodeEnum;
 
 public class Main {
     public static void main(String[] args) {
