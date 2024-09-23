@@ -35,3 +35,9 @@ sGet、sHasKey、sSet、sSetAndTime、sGetSetSize、setRemove、popMember
 lGet、lGetIndex、lSet、lUpdateIndex、lRemove
 #### Lua脚本
 executeLua
+
+# API签名认证工具
+genSign()方法实现，传入SecretKey，利用单向加密算法，生成sign字段。传递这个sign字段。
+永远不要在请求中明文传递密码或secretKey
+服务端利用存在服务端的secretKey，利用相同的单向加密算法，生成字符串，和sign字段对比
+相同，则表示secretKey正确，不同则不正确！
