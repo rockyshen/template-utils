@@ -17,6 +17,19 @@
 - 4、自定义异常类：BusinessException extends RuntimeException，定义属性：code、description、其中msg给父类，各种构造函数
 - 5、全局异常处理类：GlobalExceptionHandler,利用AOP，拦截BusinessException：1、日志记录；2、return ResultUtils.fail()
 
+# 自定义注解
+## @NoLogAnnotation
+- 本注解可以加到：参数上、方法上;
+- 加到参数上：表示这个参数不允许记录到日志中，针对敏感信息脱敏：密码
+- 加到方法上，表示这个方法的返回值不允许记录到日志中
+
+# 自定义Aop拦截器
+## ControllerLogAspect
+* 在所有controller请求前后环绕拦截
+* 请求前记录：请求类.方法名、请求方法、请求参数
+* 请求后记录：返回值
+* 可以搭配@NoLogAnnotation，指定哪些参数记录，哪些参数不记录！
+
 # redis
 ## redis.conf
 redis的配置文件，对一些常用参数添加注释，帮助理解整个配置文件；
