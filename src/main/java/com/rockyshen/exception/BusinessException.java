@@ -9,8 +9,7 @@ import com.rockyshen.result_v2.StatusCodeEnum;
  * @date 2024/9/10 14:12
  */
 public class BusinessException extends RuntimeException{
-    private int code;
-
+    private int code;   // 结果状态，具体状态码，参见枚举类！
     private String description;
 
     public BusinessException(String message, int code, String description) {

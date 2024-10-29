@@ -11,12 +11,14 @@ import lombok.Getter;
 @Getter
 public enum StatusCodeEnum {
     // 第四步：利用构造方法，构造枚举值
-    SUCCESS(0,"ok",""),
-    PARAMS_ERROR(40000,"请求参数错误",""),
-    NULL_ERROR(40001,"请求数据为空",""),
-    NO_AUTH(40100,"无权限",""),
-    NOT_LOGIN(40101,"未登录",""),
-    SYSTEM_ERROR(50000,"系统内部异常","");
+    SUCCESS(200,"ok",""),
+    USERNAME_OR_PASSWORD_ERROR(1002,"用户名或密码错误",""),
+    PARAMS_ERROR(1005,"请求参数错误",""),
+    NULL_ERROR(1006,"请求数据为空",""),
+    NOT_LOGIN(401,"未登录",""),
+    NO_AUTH(403,"无权限",""),
+    NOT_FOUND(404,"404页面找不到",""),
+    SYSTEM_ERROR(500,"系统内部异常","");
 
     // 第一步：定义枚举属性
     private final int code;
