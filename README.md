@@ -54,3 +54,7 @@ genSign()方法实现，传入SecretKey，利用单向加密算法，生成sign�
 永远不要在请求中明文传递密码或secretKey
 服务端利用存在服务端的secretKey，利用相同的单向加密算法，生成字符串，和sign字段对比
 相同，则表示secretKey正确，不同则不正确！
+
+# 自定义序列化器
+利用ByteArrayOutputStream包装流 + ObjectOutputStream节点流，将JVM程序中的对象序列化成字节，暂存到内存中；
+再利用ByteArrayInputStream包装流 + ObjectInputStream节点流，从内存中读取字节数据，反序列化为JVM中的具体对象！
