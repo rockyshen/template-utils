@@ -52,6 +52,14 @@
             <artifactId>spring-aspects</artifactId>
             <version>6.1.9</version>
         </dependency>
+
+<!--        vertx网络服务器-->
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+            <version>4.5.1</version>
+        </dependency>
+
     </dependencies>
 
 </project>

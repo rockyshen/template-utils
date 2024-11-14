@@ -58,3 +58,7 @@ genSign()方法实现，传入SecretKey，利用单向加密算法，生成sign�
 # 自定义序列化器
 利用ByteArrayOutputStream包装流 + ObjectOutputStream节点流，将JVM程序中的对象序列化成字节，暂存到内存中；
 再利用ByteArrayInputStream包装流 + ObjectInputStream节点流，从内存中读取字节数据，反序列化为JVM中的具体对象！
+
+# server和client
+## 基于vertx
+基于vertx实现Http协议、TCP协议的，服务端监听端口，客户端向服务端发送请求，服务端响应的完整过程！
