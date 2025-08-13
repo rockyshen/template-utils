@@ -62,3 +62,23 @@ genSign()方法实现，传入SecretKey，利用单向加密算法，生成sign�
 # server和client
 ## 基于vertx
 基于vertx实现Http协议、TCP协议的，服务端监听端口，客户端向服务端发送请求，服务端响应的完整过程！
+
+# 文件工具类
+## MapToFolder
+将下文的Map结构，生成对应的文件目录及文件
+```
+{
+	file1.txt=file1.txt,
+	file2.txt=file2.txt, 
+
+	subFolderB={
+		b2.txt=b2.txt, 
+		b1.txt=b1.txt
+	}, 
+	 
+	subFolderA={
+		a1.txt=a1.txt, 
+		a2.txt=a2.txt
+	}, 
+}
+```
