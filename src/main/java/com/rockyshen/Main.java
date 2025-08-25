@@ -1,14 +1,14 @@
 package com.rockyshen;
 
-import com.rockyshen.result.Result;
-import com.rockyshen.result.StatusCodeEnum;
+import com.rockyshen.fileUtils.FileUtils;
+
+import java.io.File;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        Result<String> myResult = new Result<>();
-
-        Result<Object> fail = myResult.fail(StatusCodeEnum.ERR_LOGIN);
-        System.out.println(fail);
+        File dir = new File("/Users/junjie.shen/Desktop/IT");
+        List<File> fileList = FileUtils.listAllFiles(dir);
+        System.out.println("===");
     }
 }

@@ -2,7 +2,7 @@
 这是我收集日常开发中常用到的工具类，存放在此，下次需要直接从这里拷贝即可
 
 每新加一个模版，就在这里进行说明，进行目录记录
-#result
+# 通用返回类
 ## Result类
 统一返回结果类
 - 1、Result类是封装Spring MVC的返回结果，包含经典四大件：code、message、data、datetime
@@ -82,3 +82,12 @@ genSign()方法实现，传入SecretKey，利用单向加密算法，生成sign�
 	}, 
 }
 ```
+
+## 文件夹递归提取所有文件
+FileUtils.listAllFiles(File directory)
+传递一个File类型的文件夹对象，此方法会递归获取此文件夹下的所有文件对象，组装进List<File>中返回
+
+
+## 下载链接获取文件存入本地
+FileUtils.fetchAndSave(String downloadUrl, File folder)
+传递一个下载链接、一个File类型的文件夹，本方法将执行下载操作，并将下载的文件存入制定的文件夹中。
