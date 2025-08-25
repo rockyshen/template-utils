@@ -32,7 +32,7 @@ public class Result<T> {
      * @param statusCodeEnum
      */
     public Result(StatusCodeEnum statusCodeEnum){
-        this(statusCodeEnum.getCode(),statusCodeEnum.getMsg(),null,"");
+        this(statusCodeEnum.getCode(),statusCodeEnum.getMessage(),null,"");
     }
 
     /**
@@ -41,7 +41,7 @@ public class Result<T> {
      * @param data            具体数据
      */
     public Result(StatusCodeEnum statusCodeEnum,T data){
-        this(statusCodeEnum.getCode(),statusCodeEnum.getMsg(),data,"");
+        this(statusCodeEnum.getCode(),statusCodeEnum.getMessage(),data,"");
     }
 
     /**
@@ -51,7 +51,7 @@ public class Result<T> {
      * @param description      详细描述
      */
     public Result(StatusCodeEnum statusCodeEnum,T data,String description){
-        this(statusCodeEnum.getCode(),statusCodeEnum.getMsg(),data,description);
+        this(statusCodeEnum.getCode(),statusCodeEnum.getMessage(),data,description);
     }
 
 }

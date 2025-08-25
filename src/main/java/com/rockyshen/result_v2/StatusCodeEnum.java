@@ -23,14 +23,14 @@ public enum StatusCodeEnum {
     // 第一步：定义枚举属性
     private final int code;
     // 状态码信息
-    private final String msg;
+    private final String message;
     // 状态码详细描述
     private final String description;
 
     // 第二步：全参构造器
-    StatusCodeEnum(int code, String msg, String description) {
+    StatusCodeEnum(int code, String message, String description) {
         this.code = code;
-        this.msg = msg;
+        this.message = message;
         this.description = description;
     }
 
