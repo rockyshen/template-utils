@@ -14,7 +14,7 @@ public class ResultUtils {
      * @param <T>
      */
     public static <T> Result<T> ok(T data){
-        return new Result<>(StatusCodeEnum.SUCCESS.getCode(),StatusCodeEnum.SUCCESS.getMsg(), data,"");
+        return new Result<>(StatusCodeEnum.SUCCESS.getCode(),StatusCodeEnum.SUCCESS.getMessage(), data,"");
     }
 
     /**
@@ -24,11 +24,11 @@ public class ResultUtils {
      * @param <T>
      */
     public static <T> Result<T> fail(StatusCodeEnum statusCodeEnum){
-        return new Result<>(statusCodeEnum.getCode(),statusCodeEnum.getMsg(),null,"");
+        return new Result<>(statusCodeEnum.getCode(),statusCodeEnum.getMessage(),null,"");
     }
 
     public static <T> Result<T> fail(StatusCodeEnum statusCodeEnum, String description){
-        return new Result<>(statusCodeEnum.getCode(),statusCodeEnum.getMsg(),null,description);
+        return new Result<>(statusCodeEnum.getCode(),statusCodeEnum.getMessage(),null,description);
     }
 
     public static <T> Result<T> fail(int code,String msg, String description){
