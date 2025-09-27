@@ -70,3 +70,7 @@ genSign()方法实现，传入SecretKey，利用单向加密算法，生成sign�
 
 ### flatCopy
 扁平化复制文件：基于一个根路径，提取里面的文件，不保留层级结构，将所有文件复制到目标路径下
+
+## DownloadUtil
+### downloadFileToDir
+提供一个http下载链接，获取下载到的文件，并存放到提供的路径中
