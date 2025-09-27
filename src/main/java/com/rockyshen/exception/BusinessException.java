@@ -1,7 +1,7 @@
 package com.rockyshen.exception;
 
 
-import com.rockyshen.result_v2.StatusCodeEnum;
+import com.rockyshen.result.StatusCodeEnum;
 
 /**
  * 自定义全局异常处理类

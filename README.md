@@ -1,15 +1,8 @@
 ## 说明
-这是我收集日常开发中常用到的工具类，存放在此，下次需要直接从这里拷贝即可
+这是我收集日常开发过程中抽象出来的复用逻辑，可以直接拷贝、也可以install之后作为依赖引入。
 
-每新加一个模版，就在这里进行说明，进行目录记录
-#result
-## Result类
-统一返回结果类
-- 1、Result类是封装Spring MVC的返回结果，包含经典四大件：code、message、data、datetime
-- 2、ResultEnum枚举类是简单ok方法和fail方法的code和message
-- 3、StatusCodeEnum枚举类，如果向Result.ok()/fail()中传递StatusCodeEnum，就会响应具体HTTP状态码
-
-## 【主要用这个】Result_v2
+# result
+## 【主要用这个】Result
 统一返回结果类，V2版，基于@鱼皮的用户中心项目提取，更加简单明了。
 - 1、定义Result类，包含code、msg、data、description属性，及各种构造函数
 - 2、ResultUtils类，包含ok和fail静态方法，return new Result()，运用各种Result类的构造函数
@@ -23,31 +16,15 @@
 - 加到参数上：表示这个参数不允许记录到日志中，针对敏感信息脱敏：密码
 - 加到方法上，表示这个方法的返回值不允许记录到日志中
 
+# redis
+1、整合Lua脚本，保证原子性
+
 # 自定义Aop拦截器
 ## ControllerLogAspect
 * 在所有controller请求前后环绕拦截
 * 请求前记录：请求类.方法名、请求方法、请求参数
 * 请求后记录：返回值
 * 可以搭配@NoLogAnnotation，指定哪些参数记录，哪些参数不记录！
-
-# redis
-## redis.conf
-redis的配置文件，对一些常用参数添加注释，帮助理解整个配置文件；
-
-## RedisUtil
-封装Redisson库中对redis的操作，调用更直接。适合redis作为缓存
-直接注入RedisUtil对象，基于redisUtil调用方法即可。
-### 常用方法
-#### 普通key-valeu
-set、get、getExpire、expire、hasKey、del、setnx、incr、decr
-#### Hash
-hget、hmget、hset、hdel、hHasKey、hincr、hdecr
-#### Set
-sGet、sHasKey、sSet、sSetAndTime、sGetSetSize、setRemove、popMember
-#### List
-lGet、lGetIndex、lSet、lUpdateIndex、lRemove
-#### Lua脚本
-executeLua
 
 # API签名认证工具
 genSign()方法实现，传入SecretKey，利用单向加密算法，生成sign字段。传递这个sign字段。
@@ -63,9 +40,11 @@ genSign()方法实现，传入SecretKey，利用单向加密算法，生成sign�
 ## 基于vertx
 基于vertx实现Http协议、TCP协议的，服务端监听端口，客户端向服务端发送请求，服务端响应的完整过程！
 
-# 文件工具类
-## MapToFolder
-将下文的Map结构，生成对应的文件目录及文件
+# 工具类
+## FileUtil
+### collectToMap
+基于根文件夹，收集根文件夹下所有的文件，收集成Map
+如下示例
 ```
 {
 	file1.txt=file1.txt,
@@ -82,3 +61,12 @@ genSign()方法实现，传入SecretKey，利用单向加密算法，生成sign�
 	}, 
 }
 ```
+
+### reverseFromMap
+基于上一个方法提供的Map，反推成一棵文件树形结构
+
+### collectToList
+基于根文件夹，无视层级结构，收集成一个List
+
+### flatCopy
+扁平化复制文件：基于一个根路径，提取里面的文件，不保留层级结构，将所有文件复制到目标路径下

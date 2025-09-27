@@ -1,9 +1,9 @@
 package com.rockyshen.exception;
 
 
-import com.rockyshen.result_v2.Result;
-import com.rockyshen.result_v2.ResultUtils;
-import com.rockyshen.result_v2.StatusCodeEnum;
+import com.rockyshen.result.Result;
+import com.rockyshen.result.ResultUtils;
+import com.rockyshen.result.StatusCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

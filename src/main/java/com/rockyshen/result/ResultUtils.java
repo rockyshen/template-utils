@@ -1,4 +1,4 @@
-package com.rockyshen.result_v2;
+package com.rockyshen.result;
 
 /**
  * 统一返回结果工具类
