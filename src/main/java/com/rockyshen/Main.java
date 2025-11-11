@@ -18,6 +18,6 @@ public class Main {
 //        List<File> files = FileUtil.collectToList(new File("/Users/shen/Desktop/测试"));
 //        System.out.println(files);
 
-        FileUtil.flatCopy(new File("/Users/shen/Desktop/测试"), new File("/Users/shen/Desktop/tar"));
+        FileUtil.flatCopy(new File("/Volumes/data-file/车联网知识库"), new File("/Volumes/wendangdata/maxkb/车联网知识库"));
     }
 }
