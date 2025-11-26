@@ -74,3 +74,7 @@ genSign()方法实现，传入SecretKey，利用单向加密算法，生成sign�
 ## DownloadUtil
 ### downloadFileToDir
 提供一个http下载链接，获取下载到的文件，并存放到提供的路径中
+
+## ExcelUtil
+### processExcel
+按行读取参数，处理结果，回填结果的方法。

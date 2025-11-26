@@ -23,45 +23,38 @@ import java.nio.file.StandardCopyOption;
 
 @Slf4j
 public class ExcelUtil {
-    public static void main(String[] args) {
+    public static void processExcel(String inputExcel) {
         // 读取excel中的每一行记录
-        String inputExcel = "/Users/junjie.shen/Desktop/test.xlsx";
-        String ROOT_DIR   = "/Users/junjie.shen/Desktop/upload_maxkb_doc";
+//        String inputExcel = "/Users/junjie.shen/Desktop/test.xlsx";
+
         try (FileInputStream fis = new FileInputStream(inputExcel);
-            Workbook workbook = new XSSFWorkbook(fis)) {
+             Workbook workbook = new XSSFWorkbook(fis)) {
             Sheet sheet = workbook.getSheetAt(0);
             int lastRowNum = sheet.getLastRowNum();
             for (int i = 1; i <= lastRowNum; i++) { // 跳过表头
+                // 👇循环读取Excel的每一行
                 Row row = sheet.getRow(i);
                 if (row == null) {continue;}
                 Cell filePathCell = row.getCell(0);
                 Cell knowNameCell = row.getCell(1);
                 if (filePathCell == null || knowNameCell == null) {continue;}
 
+                // 👇读取每一行中单元格的信息，提取出来
                 String filePath = filePathCell.getStringCellValue();
-                String knowName  = knowNameCell.getStringCellValue().trim();
 
-                // 基于上面从Excel中提取到的信息，进行下一步自定义方法进行处理
-                File src = new File(filePath);
-                if (!src.exists()) {
-                    log.info("源文件不存在");
-                    continue;
-                }
-                File destDir = new File(ROOT_DIR, knowName);
-                if (!destDir.exists()) {destDir.mkdirs();}
-                File destFile = new File(destDir, src.getName());
-                try {
-                    Files.copy(src.toPath(), destFile.toPath(),
-                            StandardCopyOption.REPLACE_EXISTING);
-                    log.info("拷贝完成：{} -> {}", src.getAbsolutePath(), destFile.getAbsolutePath());
-                } catch (Exception e) {
-                    log.error("拷贝失败：{}，原因：{}", filePath, e.getMessage());
-                }
+                // 拿到信息后，传入自定义方法进行处理
+                // method(filePath)...
+
+                // 结果回填到excel的第二列
+                Cell resultCell = row.getCell(1, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
+                resultCell.setCellValue("自定义方法拿到的结果");
             }
-
             // 保存修改后的Excel文件
             try (FileOutputStream fos = new FileOutputStream(inputExcel)) {
                 workbook.write(fos);
+            } finally {
+                workbook.close();
+                log.info("所有文件已处理完毕！");
             }
         } catch (IOException e) {
             e.printStackTrace();
