@@ -1,4 +1,4 @@
-package com.rockyshen.server;
+package com.rockyshen.server.vertx;
 
 import io.vertx.core.Vertx;
 import io.vertx.core.net.NetSocket;

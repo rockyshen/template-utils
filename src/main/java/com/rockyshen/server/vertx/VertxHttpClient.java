@@ -1,4 +1,4 @@
-package com.rockyshen.server;
+package com.rockyshen.server.vertx;
 
 /**
  * @author rockyshen

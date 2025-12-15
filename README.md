@@ -37,10 +37,19 @@ genSign()方法实现，传入SecretKey，利用单向加密算法，生成sign�
 再利用ByteArrayInputStream包装流 + ObjectInputStream节点流，从内存中读取字节数据，反序列化为JVM中的具体对象！
 
 # server和client
-## 基于vertx
-基于vertx实现Http协议、TCP协议的，服务端监听端口，客户端向服务端发送请求，服务端响应的完整过程！
+## netty
+基于netty实现server和client通信的快速上手示例代码。
+
+## vertx
+基于vertx实现server和client通信的快速上手示例代码。（据说vertx是出了名的麻烦😂）
+包含：Http协议、TCP协议的，服务端监听端口，客户端向服务端发送请求，服务端响应的完整过程！
 
 # 工具类
+## luban
+学习喜马拉雅中各种好用的工具类！
+### compareUtil
+对比两个对象，将属性的差异封装到DiffItem中
+
 ## FileUtil
 ### collectToMap
 基于根文件夹，收集根文件夹下所有的文件，收集成Map
