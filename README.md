@@ -50,6 +50,67 @@ genSign()方法实现，传入SecretKey，利用单向加密算法，生成sign�
 ### compareUtil
 对比两个对象，将属性的差异封装到DiffItem中
 
+### EmptyUtil
+#### 集合判断方法
+
+| 方法                     | 实现逻辑               | 说明                |
+| ---------------------- | ------------------ | ----------------- |
+| isNull(Collection)     | collection == null | 仅判断 null          |
+| isEmpty(Collection)    | null \  isEmpty()  | null 或空集合都返回 true |
+| isNotNull(Collection)  | !isNull()          | 非 null            |
+| isNotEmpty(Collection) | !isEmpty()         | 非 null 且有元素       |
+#### Map 判断方法
+
+| 方法              | 实现逻辑        |     |           |
+| --------------- | ----------- | --- | --------- |
+| isNull(Map)     | map == null |     |           |
+| isEmpty(Map)    | null \\     | \\  | isEmpty() |
+| isNotNull(Map)  | !isNull()   |     |           |
+| isNotEmpty(Map) | !isEmpty()  |     |           |
+#### 字符串判断方法
+
+| 方法                       | 实现逻辑       | 示例  |             |                        |
+| ------------------------ | ---------- | --- | ----------- | ---------------------- |
+| isEmpty(CharSequence)    | null \\    | \\  | length()==0 | "" → true, " " → false |
+| isBlank(CharSequence)    | null \\    | \\  | 全是空白字符      | " " → true             |
+| isNotEmpty(CharSequence) | !isEmpty() |     |             |                        |
+| isNotBlank(CharSequence) | !isBlank() |     |             |                        |
+#### 对象判断方法
+
+| 方法                | 实现逻辑        |
+| ----------------- | ----------- |
+| isNull(Object)    | obj == null |
+| isNotNull(Object) | obj != null |
+
+#### 函数式方法（重点）
+##### ifNullThen(T, Supplier) - null 时提供默认值
+```
+String name = EmptyUtil.ifNullThen(user.getName(), () -> "未知");
+// 等价于: name != null ? name : "未知"
+```
+
+##### ifNotNullThen(T, Consumer) - 非 null 时执行操作
+```
+EmptyUtil.ifNotNullThen(user, u -> System.out.println(u.getName()));
+// 等价于: if(user != null) { System.out.println(user.getName()); }
+```
+
+##### ifNotNullThen(T, Consumer, Function) - 非 null 时转换并消费
+```
+EmptyUtil.ifNotNullThen(dto.getAge(), builder::setAge, Integer::parseInt);
+// dto.getAge() 不为 null 时，转换为 Integer 并设置
+```
+
+##### ifNullThrow(T) / ifNullThrow(T, Supplier) - null 时抛异常
+```
+User user = EmptyUtil.ifNullThrow(findUser(id), () -> new RuntimeException("用户不存在"));
+```
+
+##### ifEmptyThrow(Collection/Map) - 空集合时抛异常
+```
+List`<User> `users = EmptyUtil.ifEmptyThrow(findUsers(), () -> new RuntimeException("无数据"));
+```
+
 ## FileUtil
 ### collectToMap
 基于根文件夹，收集根文件夹下所有的文件，收集成Map
