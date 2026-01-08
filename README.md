@@ -16,6 +16,21 @@
 - 加到参数上：表示这个参数不允许记录到日志中，针对敏感信息脱敏：密码
 - 加到方法上，表示这个方法的返回值不允许记录到日志中
 
+## @Desensitization
+- 加到返回出去的DTO的属性上，phone、email、address等信息会调用hutool工具包提供的脱敏实现
+```
+public class User {
+    // 这个属性不脱敏
+    private String id;
+
+    @Desensitization(DesensitizationStrategyEnum.NAME)
+    private String name;
+
+    @Desensitization(DesensitizationStrategyEnum.PHONE)
+    private String phone;
+}
+```
+
 # redis
 1、整合Lua脚本，保证原子性
 
