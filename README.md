@@ -163,3 +163,7 @@ List`<User> `users = EmptyUtil.ifEmptyThrow(findUsers(), () -> new Runtim
 ## ExcelUtil
 ### processExcel
 按行读取参数，处理结果，回填结果的方法。
+
+## SentenceUtil
+### parseSentence
+将一整篇文章，那指定的一句话边界，按句输出。适用于文本查询匹配关键词，不能用重复度高的单次，会存在大量误伤！正确的做法是，匹配关键词，然后提取一整句话作为context去替换，会更加准！
